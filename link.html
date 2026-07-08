@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 AI 스마트워크 기말과제 링크</title>
+    <meta name="description" content="2026학년도 AI 스마트워크 기말과제 웹페이지 목록입니다.">
+    <!-- Google Fonts: Inter & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(30, 41, 59, 0.45);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --glass-blur: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Header section */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .stats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--accent-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Search & Filter Controls */
+        .controls-wrapper {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-container {
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            backdrop-filter: blur(var(--glass-blur));
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .search-input:focus + i {
+            color: var(--accent-color);
+        }
+
+        .sort-select {
+            padding: 0 1.5rem;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            cursor: pointer;
+            outline: none;
+            backdrop-filter: blur(var(--glass-blur));
+            transition: all 0.3s ease;
+        }
+
+        .sort-select:focus {
+            border-color: var(--accent-color);
+        }
+
+        /* Grid System */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        /* Card Design */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(var(--glass-blur));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            transform-style: preserve-3d;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(56, 189, 248, 0.05);
+        }
+
+        .card-banner {
+            height: 110px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-banner::before {
+            opacity: 1;
+        }
+
+        .card-banner-icon {
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-banner-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .card-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .student-id {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            letter-spacing: 0.05em;
+        }
+
+        .platform-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-netlify {
+            background: rgba(20, 184, 166, 0.15);
+            color: #2dd4bf;
+            border: 1px solid rgba(20, 184, 166, 0.3);
+        }
+
+        .platform-vercel {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .platform-other {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .card-actions {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #0284c7);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* No Results State */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            display: none;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .no-results p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Interactive Preview Modal */
+        .preview-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 2rem;
+        }
+
+        .preview-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .preview-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 85vh;
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .preview-overlay.active .preview-container {
+            transform: scale(1);
+        }
+
+        .preview-header {
+            padding: 1rem 1.5rem;
+            background: #0f172a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .preview-title-group {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .preview-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .preview-warning {
+            font-size: 0.75rem;
+            color: #e2e8f0;
+            background: rgba(224, 121, 4, 0.2);
+            border: 1px solid rgba(224, 121, 4, 0.4);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .preview-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-close {
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            color: #94a3b8;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-close:hover {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .preview-body {
+            flex-grow: 1;
+            background: #fff;
+            position: relative;
+        }
+
+        .preview-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+        }
+
+        .preview-loader {
+            position: absolute;
+            inset: 0;
+            background: #0b0f19;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-muted);
+            transition: opacity 0.3s ease;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(56, 189, 248, 0.1);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .controls-wrapper {
+                flex-direction: column;
+            }
+            .preview-container {
+                height: 90vh;
+            }
+            .preview-overlay {
+                padding: 1rem;
+            }
+            .preview-warning {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="stats-badge">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span id="stats-text">전체 28개 기말과제 웹페이지</span>
+            </div>
+            <h1>2026 AI 스마트아트웍</h1>
+            <p>대학생 기말과제 결과물 링크 아카이브</p>
+            
+            <div class="controls-wrapper">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="search" placeholder="학번으로 검색하세요..." autocomplete="off">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <select class="sort-select" id="sort">
+                    <option value="asc">학번 오름차순</option>
+                    <option value="desc">학번 내림차순</option>
+                </select>
+            </div>
+        </header>
+
+        <main class="links-grid" id="grid">
+            <div class="no-results" id="no-results">
+                <i class="fa-regular fa-folder-open"></i>
+                <p>일치하는 학번을 찾을 수 없습니다.</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 AI Smart Artwork Class. All rights reserved.</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">본 아카이브는 학생들의 개별 창작물을 공유하기 위해 제공됩니다.</p>
+    </footer>
+
+    <!-- Interactive IFrame Preview Modal -->
+    <div class="preview-overlay" id="preview-overlay">
+        <div class="preview-container">
+            <div class="preview-header">
+                <div class="preview-title-group">
+                    <div class="preview-title" id="preview-title">학번 미리보기</div>
+                    <div class="preview-warning">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <span>보안 정책으로 미출력 시 '바로가기' 이용</span>
+                    </div>
+                </div>
+                <div class="preview-actions">
+                    <a href="#" target="_blank" class="btn btn-primary" id="preview-direct-link" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> 바로가기
+                    </a>
+                    <button class="btn-close" id="btn-close-preview">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="preview-body">
+                <div class="preview-loader" id="preview-loader">
+                    <div class="spinner"></div>
+                    <p id="loader-text">웹페이지를 로딩하고 있습니다...</p>
+                </div>
+                <iframe src="" class="preview-iframe" id="preview-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const studentData = [
+        {
+                "id": "20202807",
+                "url": "https://aismartwork20202807-1.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20202853",
+                "url": "https://20202853aismartwork.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20206619",
+                "url": "https://20206619aismartwork.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20211635",
+                "url": "https://aismartwork20211635.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20211717",
+                "url": "https://aismartwork20211717.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20241504",
+                "url": "https://aismartwork20241504.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20242905",
+                "url": "https://aismartwork20242905.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20212911",
+                "url": "https://aismartwork20212911kk.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20237137",
+                "url": "https://html-blush-five.vercel.app",
+                "platform": "vercel",
+                "platform_name": "Vercel"
+        },
+        {
+                "id": "20226612",
+                "url": "https://20226612.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20233211",
+                "url": "https://aismartwork20233211.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20247060",
+                "url": "https://aisamrtwork20247060-1.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20212953",
+                "url": "https://html5-cyan-gamma.vercel.app",
+                "platform": "vercel",
+                "platform_name": "Vercel"
+        },
+        {
+                "id": "20232821",
+                "url": "https://aismartwork232821.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20212959",
+                "url": "https://newaismartwork20212959.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20213064",
+                "url": "https://aismartwork20213064.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20232973",
+                "url": "https://aismartwork20232973.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20242981",
+                "url": "https://aismartwork20242981.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20232993",
+                "url": "https://aismartwork20232993-batech.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20221629",
+                "url": "https://snazzy-mooncake-ffd953.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20233021",
+                "url": "https://aismartwork20233021real.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20222347",
+                "url": "https://aismartwork20222347.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20232839",
+                "url": "https://aismartwork232839.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20213247",
+                "url": "https://20213247aismartworkassignment.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20246773",
+                "url": "https://aismartwork20246773.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20231631",
+                "url": "https://aismartwork20231631.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20223054",
+                "url": "https://aismartwork20223054.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        },
+        {
+                "id": "20243063",
+                "url": "https://aismartwork20243063a.netlify.app",
+                "platform": "netlify",
+                "platform_name": "Netlify"
+        }
+];
+
+        // Hash function to generate consistent gradients based on student ID
+        function getGradientForId(studentId) {
+            let hash = 0;
+            for (let i = 0; i < studentId.length; i++) {
+                hash = studentId.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const h1 = Math.abs(hash) % 360;
+            const h2 = (h1 + 60) % 360;
+            return `linear-gradient(135deg, hsl(${h1}, 70%, 50%), hsl(${h2}, 75%, 40%))`;
+        }
+
+        // Render functions
+        const grid = document.getElementById('grid');
+        const noResults = document.getElementById('no-results');
+        const statsText = document.getElementById('stats-text');
+
+        function getBannerIcon(platform) {
+            if (platform === 'netlify') return 'fa-solid fa-diamond-turn-right';
+            if (platform === 'vercel') return 'fa-solid fa-triangle-exclamation';
+            return 'fa-solid fa-globe';
+        }
+
+        function renderCards(data) {
+            // Remove existing cards
+            const cards = grid.querySelectorAll('.card');
+            cards.forEach(card => card.remove());
+
+            if (data.length === 0) {
+                noResults.style.display = 'block';
+                statsText.textContent = '검색 결과 없음';
+                return;
+            }
+
+            noResults.style.display = 'none';
+            statsText.textContent = `검색 결과: ${data.length}개`;
+
+            data.forEach((student, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.05}s`;
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+
+                const gradient = getGradientForId(student.id);
+                const bannerIcon = getBannerIcon(student.platform);
+
+                card.innerHTML = `
+                    <div class="card-banner" style="background: ${gradient}">
+                        <i class="${bannerIcon} card-banner-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="student-id">${student.id}</div>
+                        <span class="platform-badge platform-${student.platform}">${student.platform_name}</span>
+                        <div class="card-actions">
+                            <a href="${student.url}" target="_blank" class="btn btn-primary">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> 바로가기
+                            </a>
+                            <button class="btn btn-secondary" onclick="openPreview('${student.id}', '${student.url}')">
+                                <i class="fa-solid fa-eye"></i> 미리보기
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            // Add CSS animation dynamically if not present
+            if (!document.getElementById('fade-in-up-style')) {
+                const style = document.createElement('style');
+                style.id = 'fade-in-up-style';
+                style.textContent = `
+                    @keyframes fadeInUp {
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Search & Filter Logic
+        const searchInput = document.getElementById('search');
+        const sortSelect = document.getElementById('sort');
+
+        function filterAndSortData() {
+            const query = searchInput.value.trim();
+            const sortBy = sortSelect.value;
+
+            let filtered = studentData.filter(s => s.id.includes(query));
+
+            filtered.sort((a, b) => {
+                if (sortBy === 'asc') {
+                    return a.id.localeCompare(b.id);
+                } else {
+                    return b.id.localeCompare(a.id);
+                }
+            });
+
+            renderCards(filtered);
+        }
+
+        searchInput.addEventListener('input', filterAndSortData);
+        sortSelect.addEventListener('change', filterAndSortData);
+
+        // Modal Logic
+        const overlay = document.getElementById('preview-overlay');
+        const iframe = document.getElementById('preview-iframe');
+        const previewTitle = document.getElementById('preview-title');
+        const previewDirectLink = document.getElementById('preview-direct-link');
+        const previewLoader = document.getElementById('preview-loader');
+        const btnClosePreview = document.getElementById('btn-close-preview');
+
+        function openPreview(id, url) {
+            previewTitle.textContent = `학번 ${id} 기말과제`;
+            previewDirectLink.href = url;
+            previewLoader.style.opacity = '1';
+            previewLoader.style.pointerEvents = 'all';
+            iframe.src = url;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        iframe.addEventListener('load', () => {
+            previewLoader.style.opacity = '0';
+            previewLoader.style.pointerEvents = 'none';
+        });
+
+        function closePreview() {
+            overlay.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        btnClosePreview.addEventListener('click', closePreview);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closePreview();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closePreview();
+            }
+        });
+
+        // Initial Render
+        filterAndSortData();
+    </script>
+</body>
+</html>
